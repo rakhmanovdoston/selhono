@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.HeroWrapper {
+    background-image: url("/public/Rectangle\ 1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.DM {
+    font-family: "DM Serif Display", serif;
+}
+
+.Inter {
+    font-family: "Inter", sans-serif;
+}
+
+
+.Jost {
+    font-family: "Jost", sans-serif;
+}
+
+.active {
+    color: #f7f7f7;
+}
+
+.ServicesBg {
+    background-image: url("/public/Rectangle\ 20.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.transition {
+    transition: 0.4s;
+}
+
+.nav_link:hover {
+    color: #C76904;
+    transition: 0.4s;
+}
+
+.ProjectsBg {
+    background-image: url("/public/Rectangle\ 20\ \(1\).png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
