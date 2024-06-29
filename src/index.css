@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .HeroWrapper {
-    background-image: url("../public/Rectangle\ 1.png");
+    background-image: url("/public/Rectangle\ 1.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -26,7 +26,7 @@
 }
 
 .ServicesBg {
-    background-image: url("../public/Rectangle\ 20.png");
+    background-image: url("/public/Rectangle\ 20.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -42,7 +42,7 @@
 }
 
 .ProjectsBg {
-    background-image: url("../public/Rectangle\ 20\ \(1\).png");
+    background-image: url("/public/Rectangle\ 20\ \(1\).png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
