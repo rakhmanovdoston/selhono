@@ -1,46 +1,66 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
+import { BathroomContext, BedroomContext } from "../AllContext";
+import BathRooms from "./projectsComponents/BathRooms";
 import BedRoom from "./projectsComponents/BedRoom";
 import { NavLink } from "react-router-dom";
-import {
-  BedroomContext,
-  BathroomContext,
-  KitchenContext,
-  LivingContext,
-} from "./AllContext";
-import BathRooms from "./projectsComponents/BathRooms";
-import Kitchen from "./projectsComponents/Kitchen";
-import LivingArea from "./projectsComponents/LivingArea";
 
 const Project = () => {
+  const controller = new AbortController();
+  const signal = controller.signal;
   const [bedroomState, setBedroomState] = useState([]);
   const [bathroomState, setBathRoomState] = useState([]);
 
   useEffect(() => {
     async function fetchBedrooms() {
       try {
-        const response = await fetch("http://localhost:3000/bedrooms");
-        const data = await response.json();
-        setBedroomState(data);
+        const response = await fetch("http://localhost:3000/bedrooms", signal);
+
+        if (!response.ok) {
+          throw new Error("Network was not ok");
+        }
+
+        const bedroomsList = await response.json();
+        setBedroomState(bedroomsList);
       } catch (error) {
-        console.log(error);
+        if (error.name == "AbortError") {
+          console.log("Fetch is Cancelled");
+        } else {
+          console.error(error);
+        }
       }
     }
 
     fetchBedrooms();
+
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   useEffect(() => {
     async function fetchBathRooms() {
       try {
-        const response = await fetch("http://localhost:3000/bathrooms");
-        const data = await response.json();
-        setBathRoomState(data);
+        const response = await fetch("http://localhost:3000/bathrooms", signal);
+
+        if (!response.ok) {
+          throw new Error("Network was not ok");
+        }
+
+        const bathroomsList = await response.json();
+        setBathRoomState(bathroomsList);
       } catch (error) {
-        console.log(error);
+        if (error.name == "AbortError") {
+          console.log("Fetch is Cancelled");
+        } else {
+          console.error(error);
+        }
       }
     }
-
     fetchBathRooms();
+
+    return () => {
+      controller.abort();
+    };
   }, []);
 
   return (
@@ -74,17 +94,11 @@ const Project = () => {
       </nav>
       <div className="w-[1210px] h-auto m-auto my-[50px] flex flex-wrap gap-[40px]">
         <BathroomContext.Provider value={bathroomState}>
-          <BedroomContext.Provider value={bedroomState}>
-            {/* <KitchenContext.Provider> */}
-            {/* <LivingContext.Provider> */}
-            <BathRooms />
-            <BedRoom />
-            <Kitchen />
-            <LivingArea />
-            {/* </LivingContext.Provider> */}
-            {/* </KitchenContext.Provider> */}
-          </BedroomContext.Provider>
+          <BathRooms />
         </BathroomContext.Provider>
+        <BedroomContext.Provider value={bedroomState}>
+          <BedRoom />
+        </BedroomContext.Provider>
       </div>
     </main>
   );

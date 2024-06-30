@@ -1,5 +1,5 @@
 import svgimage from "../../assets/_.svg";
-import { BedroomContext } from "../AllContext";
+import { BedroomContext } from "../../AllContext";
 import { useContext } from "react";
 
 const BedRoom = () => {

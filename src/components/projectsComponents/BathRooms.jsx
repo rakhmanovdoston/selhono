@@ -1,4 +1,4 @@
-import { BathroomContext } from "../AllContext";
+import { BathroomContext } from "../../AllContext";
 import svgImage from "../../assets/_.svg";
 import { useContext } from "react";
 
@@ -11,7 +11,7 @@ const BathRooms = () => {
         {bathRooms.map((b) => {
           return (
             <div key={b.id}>
-              <img src={b.img} alt={b.name} />
+              <img src={b.img} alt={b.name} className=" w-[580px] h-[700px]" />
               <div className="flex justify-between w-[580px] h-[70px] my-8">
                 <article>
                   <h4 className="DM font-normal text-[25px] leading-8 tracking-widest">

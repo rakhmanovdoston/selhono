@@ -3,42 +3,43 @@
         {
             "id" : 1,
             "name" : "Minimal Bedroom",
-            "category":"Decor / Artchitecture",
+            "category":"bedrooms",
             "img" :"/public/Rectangle 27.png"
         },
         
         {
             "id" : 1,
             "name" : "Minimal Bedroom",
-            "category":"Decor / Artchitecture",
+            "category":"bedrooms",
             "img" :"/public/Rectangle 28.png"
+            
         },
 
         {
             "id" : 1,
             "name" : "Minimal Bedroom",
-            "category":"Decor / Artchitecture",
+            "category":"bedrooms",
             "img" :"/public/Rectangle 29.png"
         },
 
         {
             "id" : 1,
             "name" : "Minimal Bedroom",
-            "category":"Decor / Artchitecture",
+            "category":"bedrooms",
             "img" :"/public/Rectangle 30.png"
         },
 
         {
             "id" : 1,
             "name" : "Minimal Bedroom",
-            "category":"Decor / Artchitecture",
+            "category":"bedrooms",
             "img" :"/public/Rectangle 31.png"
         },
 
         {
             "id" : 1,
             "name" : "Minimal Bedroom",
-            "category":"Decor / Artchitecture",
+            "category":"bedrooms",
             "img" :"/public/Rectangle 32.png"
         }
     ],
@@ -47,43 +48,43 @@
         {
             "id" :1,
             "name" : "Minimal Bathroom",
-            "category" :"Decor / Artchitecture",
+            "category" :"bathrooms",
             "img":"/public/lotus-design-n-print-g51F6-WYzyU-unsplash.jpg"
         },
 
         {
-            "id" :1,
+            "id" :2,
             "name" : "Minimal Bathroom",
-            "category" :"Decor / Artchitecture",
-            "img":"/public/lotus-design-n-print-g51F6-WYzyU-unsplash.jpg"
+            "category" :"bathrooms",
+            "img":"/public/r-architecture-HQCW1gTMjek-unsplash.jpg"
         },
 
         {
-            "id" :1,
+            "id" :3,
             "name" : "Minimal Bathroom",
-            "category" :"Decor / Artchitecture",
-            "img":"/public/lotus-design-n-print-g51F6-WYzyU-unsplash.jpg"
+            "category" :"bathrooms",
+            "img":"/public/filmreal-studio-HQYmdYCXm7I-unsplash.jpg"
         },
 
         {
-            "id" :1,
+            "id" :4,
             "name" : "Minimal Bathroom",
-            "category" :"Decor / Artchitecture",
-            "img":"/public/lotus-design-n-print-g51F6-WYzyU-unsplash.jpg"
+            "category" :"bathrooms",
+            "img":"/public/shawnanggg-dB_usTnVQJE-unsplash.jpg"
         },
 
         {
-            "id" :1,
+            "id" :5,
             "name" : "Minimal Bathroom",
-            "category" :"Decor / Artchitecture",
-            "img":"/public/lotus-design-n-print-g51F6-WYzyU-unsplash.jpg"
+            "category" :"bathrooms",
+            "img":"/public/christian-mackie-yb9b2wbhxG4-unsplash.jpg"
         },
 
         {
-            "id" :1,
+            "id" :6,
             "name" : "Minimal Bathroom",
-            "category" :"Decor / Artchitecture",
-            "img":"/public/lotus-design-n-print-g51F6-WYzyU-unsplash.jpg"
+            "category" :"bathrooms",
+            "img":"/public/raquel-navalon-alvarez-5Xz8AhVA3wc-unsplash.jpg"
         }
     ]
 }
