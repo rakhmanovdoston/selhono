@@ -1,7 +1,48 @@
+import { useEffect, useState } from "react";
+import BedRoom from "./projectsComponents/BedRoom";
 import { NavLink } from "react-router-dom";
-import svgImage from "../assets/_.svg";
+import {
+  BedroomContext,
+  BathroomContext,
+  KitchenContext,
+  LivingContext,
+} from "./AllContext";
+import BathRooms from "./projectsComponents/BathRooms";
+import Kitchen from "./projectsComponents/Kitchen";
+import LivingArea from "./projectsComponents/LivingArea";
 
 const Project = () => {
+  const [bedroomState, setBedroomState] = useState([]);
+  const [bathroomState, setBathRoomState] = useState([]);
+
+  useEffect(() => {
+    async function fetchBedrooms() {
+      try {
+        const response = await fetch("http://localhost:3000/bedrooms");
+        const data = await response.json();
+        setBedroomState(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchBedrooms();
+  }, []);
+
+  useEffect(() => {
+    async function fetchBathRooms() {
+      try {
+        const response = await fetch("http://localhost:3000/bathrooms");
+        const data = await response.json();
+        setBathRoomState(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    fetchBathRooms();
+  }, []);
+
   return (
     <main>
       <div className="ProjectsBg w-full h-[356px] pt-[180px] mt-20">
@@ -11,12 +52,18 @@ const Project = () => {
       </div>
       <nav className="w-[880px] h-[75px] m-auto">
         <ul className="flex w-full h-[74px] border-2 border-solid border-[#CDA274] rounded-2xl  gap-3  text-center py-[0.5px] my-[40px]">
-          <li className="w-[219px] h-full py-[20px] Jost font-semibold text-lg leading-5 tracking-widest">
-            <NavLink to={"bathroom"}>Bathroom</NavLink>
-          </li>
-          <li className="w-[219px] h-[73px] bg-[#CDA274] py-[20px] text-white rounded-[18px] Jost font-semibold text-lg leading-5 tracking-widest ">
+          <NavLink
+            to={"bathrooms"}
+            className="w-[219px] h-full py-[20px] Jost font-semibold text-lg leading-5 tracking-widest"
+          >
+            Bathroom
+          </NavLink>
+          <NavLink
+            to={"bedrooms"}
+            className="w-[219px] h-[73px] bg-[#CDA274] py-[20px] text-white rounded-[18px] Jost font-semibold text-lg leading-5 tracking-widest "
+          >
             Bed Room
-          </li>
+          </NavLink>
           <li className="w-[219px] h-full py-[20px] Jost font-semibold text-lg leading-5 tracking-widest">
             Kitchan
           </li>
@@ -25,85 +72,20 @@ const Project = () => {
           </li>
         </ul>
       </nav>
-      {/* <div className=" w-[1210px] h-auto m-auto my-[50px] flex flex-wrap gap-[40px]">
-        <div>
-          <img src="/Rectangle 27.png" alt="" />
-          <div className="flex justify-between w-[580px] h-[70px] my-8 ">
-            <article>
-              <h4 className="DM font-normal text-[25px] leading-8 tracking-widest">
-                Minimal Bedroom
-              </h4>
-              <p>Decor / Artchitecture</p>
-            </article>
-            <img src={svgImage} alt="" />
-          </div>
-        </div>
-
-        <div>
-          <img src="/Rectangle 28.png" alt="" />
-          <div className="flex justify-between w-[580px] h-[70px] my-8 ">
-            <article>
-              <h4 className="DM font-normal text-[25px] leading-8 tracking-widest">
-                Minimal Bedroom
-              </h4>
-              <p>Decor / Artchitecture</p>
-            </article>
-            <img src={svgImage} alt="" />
-          </div>
-        </div>
-
-        <div>
-          <img src="/Rectangle 29.png" alt="" />
-          <div className="flex justify-between w-[580px] h-[70px] my-8 ">
-            <article>
-              <h4 className="DM font-normal text-[25px] leading-8 tracking-widest">
-                Minimal Bedroom
-              </h4>
-              <p>Decor / Artchitecture</p>
-            </article>
-            <img src={svgImage} alt="" />
-          </div>
-        </div>
-
-        <div>
-          <img src="/Rectangle 30.png" alt="" />
-          <div className="flex justify-between w-[580px] h-[70px] my-8 ">
-            <article>
-              <h4 className="DM font-normal text-[25px] leading-8 tracking-widest">
-                Minimal Bedroom
-              </h4>
-              <p>Decor / Artchitecture</p>
-            </article>
-            <img src={svgImage} alt="" />
-          </div>
-        </div> */}
-
-      {/* <div>
-          <img src="/Rectangle 31.png" alt="" />
-          <div className="flex justify-between w-[580px] h-[70px] my-8 ">
-            <article>
-              <h4 className="DM font-normal text-[25px] leading-8 tracking-widest">
-                Minimal Bedroom
-              </h4>
-              <p>Decor / Artchitecture</p>
-            </article>
-            <img src={svgImage} alt="" />
-          </div>
-        </div>
-
-        <div>
-          <img src="/Rectangle 32.png" alt="" />
-          <div className="flex justify-between w-[580px] h-[70px] my-8 ">
-            <article>
-              <h4 className="DM font-normal text-[25px] leading-8 tracking-widest">
-                Minimal Bedroom
-              </h4>
-              <p>Decor / Artchitecture</p>
-            </article>
-            <img src={svgImage} alt="" />
-          </div>
-        </div>
-      </div> */}
+      <div className="w-[1210px] h-auto m-auto my-[50px] flex flex-wrap gap-[40px]">
+        <BathroomContext.Provider value={bathroomState}>
+          <BedroomContext.Provider value={bedroomState}>
+            {/* <KitchenContext.Provider> */}
+            {/* <LivingContext.Provider> */}
+            <BathRooms />
+            <BedRoom />
+            <Kitchen />
+            <LivingArea />
+            {/* </LivingContext.Provider> */}
+            {/* </KitchenContext.Provider> */}
+          </BedroomContext.Provider>
+        </BathroomContext.Provider>
+      </div>
     </main>
   );
 };

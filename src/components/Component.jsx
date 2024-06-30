@@ -11,7 +11,8 @@ import NotFound from "./NotFound";
 import logoImage from "../assets/SELHONO.svg";
 
 import { FaSearch } from "react-icons/fa";
-import Bathroom from "./projectsComponents/Bathroom";
+import BathRooms from "./projectsComponents/BathRooms";
+import BedRoom from "./projectsComponents/BedRoom";
 
 const Component = () => {
   return (
@@ -61,7 +62,8 @@ const Component = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/project/*" element={<Project />}>
-            <Route path="bathroom" element={<Bathroom />} />
+            <Route path="bathrooms" element={<BathRooms />} />
+            <Route path="bedrooms" element={<BedRoom />} />
           </Route>
           <Route path="/services" element={<Services />} />
           <Route path="*" element={<NotFound />} />
